@@ -1,0 +1,42 @@
+/* styles.css */
+
+div[for="boxy"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 13rem;
+}
+/* Form Styles */
+form[for="welcome"] {
+  background-color: #ddd; /* Couleur de fond légèrement plus foncée pour le corps */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: auto; /* Centre horizontalement */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement et verticalement */
+}
+
+/* Titre Styles */
+label[for="logo"] {
+  display: block;
+  font-size: 24px; /* Taille de police plus grande pour le titre */
+  font-weight: bold; /* Texte en gras pour le titre */
+  margin-bottom: 20px; /* Marge inférieure pour l'espace */
+  text-align: center; /* Centrer le texte */
+  font-family: 'Roboto', sans-serif;
+}
+
+label[for="slogan"] {
+  display: block;
+  font-size: 16px; /* Taille de police plus petite pour le slogan */
+  margin-bottom: 20px; /* Marge inférieure pour l'espace */
+  text-align: center; /* Centrer le texte */
+}
+
+
+/* ... Autres styles ... */
