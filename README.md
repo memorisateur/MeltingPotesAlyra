@@ -11,7 +11,7 @@ Petits bugs qui n'ont pas eu le temps d'être corrigé :
 - Le rafraichissement automatique de la page une fois une action effectuée (plutôt que de le faire manuellement)
 - Un coverage à 100% des tests
 - Un smart contract plus concis
-- 
+  
 Déployé sur Mumbai : 0x0529E84a91761f8fA9b3d7e568c9dF5e0Cc3DC50
 
 Déployé sur Sepolia :
