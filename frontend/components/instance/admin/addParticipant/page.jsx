@@ -147,40 +147,21 @@ const AddParticipant = () => {
       }
 
 
-      const [moneyDepositedUser, setMoneyDepositedUser] = useState(0);
-
-      useEffect(() => {
-        const updateInstance = async () => {
-          // Récupérer toutes les valeurs de moneyDeposited pour chaque participant
-          const moneyDepositedValues = await Promise.all(
-            participantAddedEvent.map(async (participant) => {
-                   // Get the balance of the user
-     const getMoneyDepositedUser = async() => {
-      try {
-          const data = await readContract({
-              address: instanceAddress,
-              abi: meltingPotesContract.abi,
-              functionName: 'getMoneyDeposited',
-              args: [participant.address],
-          })
-          return data
-      }   
-      catch(err) {
-          console.log(err.message)
-      }
-  }
-              return await getMoneyDepositedUser();
+      const getMoneyDeposited = async(address) => {
+        try {
+            const data = await readContract({
+                address: instanceAddress,
+                abi: meltingPotesContract.abi,
+                functionName: 'getMoneyDeposited',
+                args: [address],
             })
-          );
-      
-          // Mettre à jour l'état avec les valeurs récupérées
-          setMoneyDepositedUser(moneyDepositedValues);
-        };
-      
-        updateInstance();
-      }, [publicClient, participantAddedEvent]);
+            return data
+        }   
+        catch(err) {
+            console.log(err.message)
+        }
+    }
     
-
 
   return (
     <div>
@@ -191,7 +172,7 @@ const AddParticipant = () => {
             key={participant.address}
             address={participant.address}
             allowed={participant.allowed}
-            moneyDepisted={moneyDepositedUser[index]}
+            depositeee={getMoneyDeposited(participant.address)}
             name={participant.name}
              />
               })}      
