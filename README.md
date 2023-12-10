@@ -5,6 +5,7 @@ La dapp se divise en 3 partie: L'écran d'accueil, l'interface et l'instance sé
 
 Note: Afin de passer les tests, les functions fonctions sendBackFunds, calculatePercentage et calculateAmountToSend ont été passées en public. Dans le cadre d'un véritable déploiement elles auraient été mises en internal/private. 
 
+La fonction messagerie décentralisée de la dapp n'a pour l'instant pas pu être implémenté, à la fois par faute de temps et par manque de compréhension sur le domaine. Le lien actuel renvoie à un modèle préconçu par XMTP. 
 Petits bugs qui n'ont pas eu le temps d'être corrigé :
 
 - L'affichage de l'argent déposé par chaque participant. (lié à un problème de client side sur next.js)
