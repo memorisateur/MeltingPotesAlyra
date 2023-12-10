@@ -15,8 +15,14 @@ Petits bugs qui n'ont pas eu le temps d'être corrigé :
 Déployé sur Mumbai : 0x0529E84a91761f8fA9b3d7e568c9dF5e0Cc3DC50
 
 Déployé sur Sepolia :
+```shell
     yarn hardhat run ./scripts/deploy.js --network sepolia
-    yarn hardhat verify 0xE1eE9D9dFa4F339ec62fFb2E76Bc203c26A58267 --network sepolia
+```
+
+```shell
+  yarn hardhat verify 0xE1eE9D9dFa4F339ec62fFb2E76Bc203c26A58267 --network sepolia
+```
+    
 Successfully submitted source code for contract contracts/MeltingPotesFactory.sol:MeltingPotesFactory at 0xE1eE9D9dFa4F339ec62fFb2E76Bc203c26A58267 for verification on the block explorer. Waiting for verification result...
 Successfully verified contract MeltingPotesFactory on the block explorer. https://sepolia.etherscan.io/address/0xE1eE9D9dFa4F339ec62fFb2E76Bc203c26A58267#code
 
