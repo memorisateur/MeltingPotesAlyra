@@ -8,9 +8,6 @@ import Instance from '@/components/instance/page';
 // wagmi
 import { useAccount } from 'wagmi';
 
-//react
-import { useState, useEffect } from "react";
-
 // constants
 import { useInstanceAddress } from '@/constants/instanceAddress';
 
@@ -20,7 +17,7 @@ export default function Home() {
   const {instanceAddress, setInstanceAddress} = useInstanceAddress();
 
   // check if the user is connected
-  const { address, isConnected, onDisconnect } = useAccount()
+  const { address, isConnected } = useAccount()
 
 
   return (

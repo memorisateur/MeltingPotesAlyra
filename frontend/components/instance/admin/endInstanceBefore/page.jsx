@@ -66,9 +66,17 @@ const endInstanceBefore = async() => {
 
     } catch(error) {
       console.log(error.message);
+      let errorMessage = "An error occurred.";
+  
+      // Check the specific error message from the smart contract
+      if (error.message.includes("You are not the administrator")) {
+        errorMessage = "You are not the administrator";
+      } else if (error.message.includes("The instance has ended")) {
+        errorMessage = "The instance has ended";
+      } 
       toast({
         title: 'Oh no...',
-        description: "An error occured...",
+        description: errorMessage,
         status: 'error',
         duration: 4000,
         isClosable: true,

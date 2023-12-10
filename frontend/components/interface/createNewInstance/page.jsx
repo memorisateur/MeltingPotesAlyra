@@ -100,9 +100,15 @@ const CreateInstance = () => {
       })
     } catch(error) {
       console.log(error.message);
+      let errorMessage = "An error occurred.";
+  
+      // Check the specific error message from the smart contract
+      if (error.message.includes("You have reached the maximum amount of instances per user")) {
+        errorMessage = "You have reached the maximum amount of instances per user";
+      } 
       toast({
         title: 'Oh no...',
-        description: "An error occured...",
+        description: errorMessage,
         status: 'error',
         duration: 4000,
         isClosable: true,

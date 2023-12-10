@@ -20,9 +20,6 @@ import {
 import { usePublicClient } from "wagmi";
 import { prepareWriteContract, writeContract } from '@wagmi/core'
 
-//react
-import { useState, useEffect } from "react";
-
 //constants
 import { useInstanceAddress } from '@/constants/instanceAddress';
 import { meltingPotesContract } from '@/constants/contract';
@@ -66,9 +63,19 @@ const endInstanceAfter = async() => {
 
     } catch(error) {
       console.log(error.message);
+      let errorMessage = "An error occurred.";
+  
+      // Check the specific error message from the smart contract
+      if (error.message.includes("You are not in this instance")) {
+        errorMessage = "You are not in this instance";
+      }  else if (error.message.includes("the instance is still active")) {
+        errorMessage = "the instance is still active";
+      } else if (error.message.includes("Instance already ended")) {
+        errorMessage = "Instance already ended";
+      } 
       toast({
         title: 'Oh no...',
-        description: "An error occured...",
+        description: errorMessage,
         status: 'error',
         duration: 4000,
         isClosable: true,

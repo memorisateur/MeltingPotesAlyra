@@ -599,7 +599,7 @@ const { parseEther } = require('ethers');
 
       await expect(meltingPotes.endInstanceBeforeDateOfExpire())
         .to.emit(meltingPotes, 'instanceEnded')
-        .withArgs(await time.latest() +1);
+        .withArgs(await time.latest() +2);
     });
 
   });

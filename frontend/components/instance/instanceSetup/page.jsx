@@ -79,7 +79,7 @@ useEffect(() => {
            // Convertir la valeur de Wei en Ether
     const balanceInEther = formatEther(data);
     return balanceInEther
-     }   
+     }
      catch(err) {
          console.log(err.message)
      }

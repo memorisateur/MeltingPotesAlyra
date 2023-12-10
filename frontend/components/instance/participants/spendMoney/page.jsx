@@ -14,8 +14,6 @@ import {
     FormControl,
     FormLabel,
     Input,
-    Tab,
-    TabPanel,
 } from '@chakra-ui/react'
 
 //wagmi
@@ -91,9 +89,19 @@ const SpendMoney = () => {
       })
     } catch(error) {
       console.log(error.message);
+      let errorMessage = "An error occurred.";
+  
+      // Check the specific error message from the smart contract
+      if (error.message.includes("You have not been authorized to spend")) {
+        errorMessage = "You have not been authorized to spend";
+      }  else if (error.message.includes("The instance has ended")) {
+        errorMessage = "The instance has ended";
+      } else if (error.message.includes("Not enough funds")) {
+        errorMessage = "Not enough funds";
+      } 
       toast({
         title: 'Oh no...',
-        description: "An error occured...",
+        description: errorMessage,
         status: 'error',
         duration: 4000,
         isClosable: true,

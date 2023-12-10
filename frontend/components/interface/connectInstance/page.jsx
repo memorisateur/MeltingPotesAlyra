@@ -88,9 +88,21 @@ const ConnectInstance = () => {
       })
     } catch(error) {
       console.log(error.message);
+      let errorMessage = "An error occurred.";
+  
+      // Check the specific error message from the smart contract
+      if (error.message.includes("You have reached the maximum amount of instances per user")) {
+        errorMessage = "You have reached the maximum amount of instances per user";
+      } else if (error.message.includes("this address is not one of the smart contract's instance")) {
+        errorMessage = "this address is not one of the smart contract's instance";
+      } else if (error.message.includes("this instance is already registered")) {
+        errorMessage = "this instance is already registered";
+      } else if (error.message.includes("you are not allowed in this instance")) {
+        errorMessage = "you are not allowed in this instance";
+      } 
       toast({
         title: 'Oh no...',
-        description: "An error occured...",
+        description: errorMessage,
         status: 'error',
         duration: 4000,
         isClosable: true,
