@@ -7,7 +7,7 @@ Note: Afin de passer les tests, les functions fonctions sendBackFunds, calculate
 
 Petits bugs qui n'ont pas eu le temps d'être corrigé :
 
--L'affichage de l'argent déposé par chaque participant. (lié à un problème de client side sur next.js)
+- L'affichage de l'argent déposé par chaque participant. (lié à un problème de client side sur next.js)
 - Le rafraichissement automatique de la page une fois une action effectuée (plutôt que de le faire manuellement)
 - Un coverage à 100% des tests
 - Un smart contract plus concis
