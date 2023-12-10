@@ -13,7 +13,8 @@ const HistoryCard = ({date, amount, from, to, description}) => {
             <Td isNumeric>{date}</Td>
             <Td isNumeric>{amount}</Td>
             <Td >{from} <br /> {to}</Td>
-            <Td >{descriptiont}</Td>
+            <Td >{description}</Td>
+            <Td></Td>
           </Tr>
     </Tbody>
   )

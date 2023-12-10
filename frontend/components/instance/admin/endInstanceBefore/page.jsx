@@ -18,7 +18,7 @@ import {
 
 //wagmi
 import { usePublicClient } from "wagmi";
-import { prepareWriteContract, writeContract } from '@wagmi/core'
+import { prepareWriteContract, writeContract, waitForTransaction } from '@wagmi/core'
 
 //react
 import { useState, useEffect } from "react";

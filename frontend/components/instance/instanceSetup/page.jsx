@@ -74,13 +74,16 @@ useEffect(() => {
          const data = await readContract({
              address: instanceAddress,
              abi: meltingPotesContract.abi,
-             functionName: 'getTotalBalanceOfInstance',
+             functionName: 'getBalanceOfInstance',
          })
-         return data
+           // Convertir la valeur de Wei en Ether
+    const balanceInEther = formatEther(data);
+    return balanceInEther
      }   
      catch(err) {
          console.log(err.message)
      }
+
  }
 
    // Get the minimum deposit of the instance
@@ -91,11 +94,14 @@ useEffect(() => {
             abi: meltingPotesContract.abi,
             functionName: 'getTotalBalanceOfInstance',
         })
-        return data
+      // Convertir la valeur de Wei en Ether
+    const totalBalanceInEther = formatEther(data);
+    return totalBalanceInEther
     }   
     catch(err) {
         console.log(err.message)
     }
+
 }
 
   // Get the title of instance

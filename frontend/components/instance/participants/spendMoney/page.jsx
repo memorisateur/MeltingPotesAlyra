@@ -67,7 +67,7 @@ const SpendMoney = () => {
       const { request } = await prepareWriteContract({
        address: instanceAddress,
        abi: meltingPotesContract.abi,
-       functionName: 'depositMoney',
+       functionName: 'spendMoney',
        args: [parseEther(newMoneySpended), newMoneySpendedAddress, newMoneySpendedDescription],
       })
       const { hash } = await writeContract(request);

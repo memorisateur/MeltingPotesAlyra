@@ -56,8 +56,8 @@ const HistoryTable = () => {
           <Th alignContent='left' isNumeric  style={{ backgroundColor: '#008080', color: 'white' }}><Box ml='-20px'>Date</Box></Th>
           <Th isNumeric   style={{ backgroundColor: '#008080', color: 'white' }}><Box ml='-10px'>Amount</Box></Th>
           <Th  style={{ backgroundColor: '#008080', color: 'white' }}>from: <br/> to:</Th>
-          <Th style={{ backgroundColor: '#008080', color: 'white' }}></Th>
           <Th style={{ backgroundColor: '#008080', color: 'white' }}>Description</Th>
+          <Th style={{ backgroundColor: '#008080', color: 'white' }}></Th>
         </Tr>
       </Thead>
 

@@ -85,7 +85,7 @@ const AddParticipant = () => {
         //reset value
         await setNewParticipantAddress('');
         await setNewParticipantName('');
-        await setNewParticipantStatus(false);
+        await setNewParticipantAllowed(false);
         await onClose();
         
         toast({

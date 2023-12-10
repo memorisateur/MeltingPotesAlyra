@@ -207,15 +207,18 @@ contract MeltingPotes {
 
         participantAddress.push(msg.sender);
 
+       string memory admin = string(abi.encodePacked("Administrator : ", _name));
+
         Participant memory administrator =  Participant ({
-            name: _name,
+            name: admin,
             userAddress: _admin,
             moneyDeposited: 0,
-            authorizedToSpend: true
+            authorizedToSpend: false
         });
+
         participants[msg.sender] = administrator;
         Administrator = _admin;
-    emit participantAdded( _admin, _name, true);
+    emit participantAdded( _admin, admin, false);
     }
 
     /** @notice authorize only the participants to use the function */

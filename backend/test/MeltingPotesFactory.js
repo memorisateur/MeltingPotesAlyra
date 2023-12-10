@@ -217,9 +217,9 @@ const { parseEther } = require('ethers');
       // Check if the owner is added as the first participant
       const ownerParticipant = await meltingPotes.participants(owner.address);
       expect(ownerParticipant.userAddress).to.equal(owner.address);
-      expect(ownerParticipant.name).to.equal("Lary");
+      expect(ownerParticipant.name).to.equal("Administrator : Lary");
       expect(ownerParticipant.moneyDeposited).to.equal(0); 
-      expect(ownerParticipant.authorizedToSpend).to.equal(true); 
+      expect(ownerParticipant.authorizedToSpend).to.equal(false); 
     });
 
   });
@@ -353,9 +353,9 @@ const { parseEther } = require('ethers');
       });
   
       it('should revert if not a receiver address', async () => {
-        const { meltingPotes } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
+        const { meltingPotes, part1 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
         const invalidAddress = '0x0000000000000000000000000000000000000000';
-        await expect(meltingPotes.spendMoney(parseEther("0.1"), invalidAddress, "cadeau" )).to.be.revertedWith("invalid address");
+        await expect(meltingPotes.connect(part1).spendMoney(parseEther("0.1"), invalidAddress, "cadeau" )).to.be.revertedWith("invalid address");
       });
   
       it('should not be able to be called if instance is inactive', async () => {
@@ -371,8 +371,8 @@ const { parseEther } = require('ethers');
       });
   
       it('should not send to any address if authorizedAddress is not empty', async () => {
-        const { meltingPotes, addr6 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
-        await expect(meltingPotes.spendMoney(parseEther("0.1"), addr6.address, "cadeau")).to.be
+        const { meltingPotes, addr6, part1 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
+        await expect(meltingPotes.connect(part1).spendMoney(parseEther("0.1"), addr6.address, "cadeau")).to.be
         .revertedWith("this address is not authorized to receive funds");
       });
   
@@ -382,10 +382,10 @@ const { parseEther } = require('ethers');
       });
   
       it('should update the balance of instance', async () => {
-        const { meltingPotes, authAddr4 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
+        const { meltingPotes, authAddr4, part1 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
         
         // Spend money
-        await meltingPotes.spendMoney(parseEther("0.1"), authAddr4.address, "cadeau");
+        await meltingPotes.connect(part1).spendMoney(parseEther("0.1"), authAddr4.address, "cadeau");
       
         // Check the updated balance
         const updatedBalance = await meltingPotes.getBalanceOfInstance();
@@ -498,7 +498,7 @@ const { parseEther } = require('ethers');
       it('should calculate the right amount to send', async () => {
         const { meltingPotes, part1, authAddr4 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
 
-        await meltingPotes.spendMoney(parseEther("1"), authAddr4.address, "cadeau");
+        await meltingPotes.connect(part1).spendMoney(parseEther("1"), authAddr4.address, "cadeau");
 
         const updatedMoneyDeposited = await meltingPotes.getMoneyDeposited(part1.address);
         const totalBalance = await meltingPotes.getTotalBalanceOfInstance();
@@ -518,9 +518,9 @@ const { parseEther } = require('ethers');
       });
   
       it('should return 0 if the percentage is 0%', async () => {
-        const { meltingPotes, part3, authAddr4 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
+        const { meltingPotes, part3, authAddr4, part1 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
 
-        await meltingPotes.spendMoney(parseEther("1"), authAddr4.address, "cadeau");
+        await meltingPotes.connect(part1).spendMoney(parseEther("1"), authAddr4.address, "cadeau");
         const updatedMoneyDeposited = await meltingPotes.getMoneyDeposited(part3.address);
         const totalBalance = await meltingPotes.getTotalBalanceOfInstance();
         const balance = await meltingPotes.getBalanceOfInstance();
@@ -599,7 +599,7 @@ const { parseEther } = require('ethers');
 
       await expect(meltingPotes.endInstanceBeforeDateOfExpire())
         .to.emit(meltingPotes, 'instanceEnded')
-        .withArgs(await time.latest() + 1);
+        .withArgs(await time.latest() +1);
     });
 
   });
@@ -653,8 +653,8 @@ const { parseEther } = require('ethers');
     });
 
     it('should get the total amount sended of the instance', async () => {
-      const { meltingPotes, authAddr4 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
-      await meltingPotes.spendMoney(parseEther("1"), authAddr4.address, "cadeau");
+      const { meltingPotes, authAddr4, part1 } = await loadFixture(deployMeltingPotes_withMoneyDeposited);
+      await meltingPotes.connect(part1).spendMoney(parseEther("1"), authAddr4.address, "cadeau");
       const totalBalance = await meltingPotes.getTotalBalanceOfInstance();
       await expect(totalBalance).to.equal(parseEther("4"));
     });
