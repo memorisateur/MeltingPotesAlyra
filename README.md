@@ -16,7 +16,7 @@ Petits bugs qui n'ont pas eu le temps d'être corrigé :
 
 Front deployé avec Vercel (avec le smart contract de Mumbai) : https://melting-potes-vercel.vercel.app/
 
-Lien loom démonstration de la dapp (désolé pour le son de micro) : https://www.loom.com/share/8f118bc565ce4a309744b99143dd967f
+Lien loom démonstration de la dapp (désolé pour le son de micro) : [https://www.loom.com/share/8f118bc565ce4a309744b99143dd967f](https://www.loom.com/share/eac717dd595747eea4a0699336629ea6?sid=9f8d0700-44cf-4a9b-a011-cb06fdda0984)
 
 Déployé sur Mumbai : 0x0529E84a91761f8fA9b3d7e568c9dF5e0Cc3DC50
 
