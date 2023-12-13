@@ -1,5 +1,5 @@
 // Developpment constants à remplir
-const factoryContractAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
+const factoryContractAddress = "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d"
 const factoryTransactionHash = "0xc0598d23e06efef6d6c142ef159983a2a2b3d32191c0bd53bf821afb3a89947f"
 const factoryBlockNumber= 1
 

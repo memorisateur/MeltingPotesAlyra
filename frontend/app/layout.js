@@ -3,6 +3,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiConfig } from 'wagmi';
 import { wagmiConfig, chains } from "./wagmiConfig";
+import { XMTPProvider } from "@xmtp/react-sdk";
+
 
 //useContext
 import { InstanceAddressProvider } from '@/constants/instanceAddress';
@@ -16,6 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
       <ChakraProvider>
+      <XMTPProvider>
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains}>
             <InstanceAddressProvider>
@@ -27,6 +30,7 @@ export default function RootLayout({ children }) {
             </InstanceAddressProvider>
           </RainbowKitProvider>
         </WagmiConfig>
+        </XMTPProvider>
       </ChakraProvider>
       </body>
     </html>

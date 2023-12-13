@@ -6,6 +6,7 @@ import Link from "next/link";
 
 //constants
 import { useInstanceAddress } from '@/constants/instanceAddress';
+import InboxPage from "./xmtp/Page";
 
 const Header = () => {
 
@@ -42,12 +43,7 @@ const Header = () => {
             Interface
           </Text>
         </Link>
-
-        <Link target="_blank" href="https://xmtp.chat/inbox" passHref>
-        <Text as="span" fontSize="xl" color="#333" mr="1rem">
-          Messagerie
-        </Text>
-    </Link>
+        <InboxPage />
       </Flex>
       <ConnectButton />
     </Flex>
