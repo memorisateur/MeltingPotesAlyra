@@ -7,7 +7,7 @@ La dapp se divise en 3 partie: L'écran d'accueil, l'interface et l'instance sé
 Note: Afin de passer les tests, les functions fonctions sendBackFunds, calculatePercentage et calculateAmountToSend ont été passées en public. 
 Dans le cadre d'un véritable déploiement elles auraient été mises en internal/private. 
 
-Last update : implementation de la messagerie instantannée avec XMTP. 
+Last update : implementation de la messagerie instantannée avec XMTP. Je suis conscient que ce rajout de code a été fait après la deadline, j'ai quand même préféré terminer le projet avec la figure cadrante plutôt que de ne pas la rendre.
 
 Petits bugs qui n'ont pas eu le temps d'être corrigé :
 
