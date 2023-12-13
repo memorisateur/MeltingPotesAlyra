@@ -17,6 +17,7 @@ Petits bugs qui n'ont pas eu le temps d'être corrigé :
 - Un smart contract plus concis
 
 Front deployé avec Vercel (avec le smart contract de Mumbai) : https://melting-potes-vercel.vercel.app/
+déployé avec Vercel (Mumbai) et l'implémentation de la messagerie décentralisée : https://melting-potes-xmtp.vercel.app/
 
 Lien loom démonstration de la dapp : [https://www.loom.com/share/8f118bc565ce4a309744b99143dd967f](https://www.loom.com/share/eac717dd595747eea4a0699336629ea6?sid=9f8d0700-44cf-4a9b-a011-cb06fdda0984)
 
